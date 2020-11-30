@@ -1,6 +1,6 @@
+#Se importan librerias y dependencias
 from flask import Flask, jsonify, request, json, make_response
 import requests, jwt, datetime
-from functools import wraps
 
 app = Flask(__name__)
 
@@ -24,9 +24,9 @@ def addAgent():
 #Permite crear incidencia si un agente esta registrado
 @app.route('/issue', methods=['POST'])
 def issue():
-    if 'access-token' in request.headers:
+    if 'access-token' in request.headers: #Se valida el token agregado por el usuario
         aux_token = request.headers['access-token']
-        if aux_token == token and token != '':
+        if aux_token == token and token != '': #Se comparan los token, en caso de coincidir el usuario puede insertar una incidencia
             newIssue = {
                 "Fecha": request.json['Fecha'],
                 "Titulo": request.json['Titulo'],
@@ -44,7 +44,7 @@ def issue():
 @app.route('/login', methods=['POST'])
 def login():
     auth = request.authorization
-    if not auth or not auth.username or not auth.password:
+    if not auth or not auth.username or not auth.password: #Valida si el usuario no ha iniciado un apartado de authorization en postman
         return make_response('No se ha autentificado', 401, {'WWW-Autheticate': 'Basic realm="Login Required!"'})
     else:
         response = requests.get(url2)
