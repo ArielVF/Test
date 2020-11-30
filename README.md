@@ -22,8 +22,8 @@ se debe llamar "access-token", y es éste el que permite el ingreso al endpoint 
 tanto, aunque se ingrese un agente laT incidencia se almacena con el nombre del usuario que ha ingresado al endpoint.
 
 - Código principal Apirest.py
-- Teniendo en cuenta las consideraciones, la ejecución es sencilla, a través de una terminal se ejecuta el código (en visual code es 
-python nombre_programa.py), éste iniciará y arrancará de manera local en el puerto 4000. Luego, mediante postman se puede comenzar a 
+- Teniendo en cuenta las consideraciones, la ejecución es sencilla, a través de una terminal se ejecuta el código (en visual code es: 
+_python nombre_programa.py_), éste iniciará y arrancará de manera local en el puerto 4000. Luego, mediante postman se puede comenzar a 
 ejecutar las peticiones. Cuando se envían datos mediante post (endpoint /agent e /issue) se debe respetar el formato json.
 
 - Código script script.py
